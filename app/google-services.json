@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "405786873599",
+    "firebase_url": "https://blizapp-development.firebaseio.com",
+    "project_id": "blizapp-development",
+    "storage_bucket": "blizapp-development.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:405786873599:android:f3407ada532e14d5",
+        "android_client_info": {
+          "package_name": "com.app.blizapp.blizapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "405786873599-ouf7ph612f52lh7199blhjn9kchoov2b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.blizapp.blizapp",
+            "certificate_hash": "3394ad8c49918f64922677923650e18e1454f9b2"
+          }
+        },
+        {
+          "client_id": "405786873599-c7ss9on4n8et46u9mqllhert1b36fgrg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHV5aJGMWsGrX3X61u40f3GYrf3338HZs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "405786873599-c7ss9on4n8et46u9mqllhert1b36fgrg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

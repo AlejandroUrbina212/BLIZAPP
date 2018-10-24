@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">Blizapp</string>
+    <string name="blizapp">Blizapp</string>
+    <string name="logo">logo</string>
+    <string name="appSlogan">Conteo Seguro, Fácil y Confiable</string>
+    <string name="firstName">Nombre</string>
+    <string name="last_name">Apellido</string>
+    <string name="Email">E-mail</string>
+    <string name="user_Name">Nombre de Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="Confirm_password">Confirmar Contraseña</string>
+    <string name="telephone">Teléfono Celular</string>
+    <string name="gender">Soy</string>
+    <string name="female">Mujer</string>
+    <string name="male">Hombre</string>
+    <string name="register">Registrarme</string>
+    <string name="crea_tu_cuenta">Nos importa tu seguridad, todos tus datos son almacenados de manera segura</string>
+    <string name="carne">Carné</string>
+    <string name="number_of_hours">Número de Horas Realizadas</string>
+    <string name="insertStudentData">Por favor Ingresa los datos del estudiante</string>
+    <string name="departmentOfService">Departamento / Facultad</string>
+    <string name="save_student_data">Guardar Registro</string>
+    <string name="logout">Cerrar Sesión</string>
+    <string name="dateOfService">Click Para Ingresar la fecha de realización</string>
+
+    <string-array name="facultyNames">
+        <item>Ingeniería</item>
+        <item>Ciencias y Humanidades</item>
+        <item>Educación</item>
+        <item>Ciencias Sociales</item>
+        <item>Vida Estudiantil</item>
+        <item>Relaciones Públicas</item>
+        <item>SEEA</item>
+        <item>Design Innovation And Arts</item>
+        <item>Ciencias Sociales</item>
+        <item>Global Management And B.I.</item>
+        <item>Colegio Universitario</item>
+    </string-array>
+
+    <string-array name="engineeringNames">
+        <item>Administración</item>
+        <item>Bioinformática</item>
+        <item>Biomédica</item>
+        <item>Biotec. Industrial</item>
+        <item>Ciencias de Alimentos</item>
+        <item>Civil</item>
+        <item>Civil Ambiental</item>
+        <item>Civil Arquitectónica</item>
+        <item>Civil Industrial</item>
+        <item>CCTI</item>
+        <item>Electrónica</item>
+        <item>Industrial</item>
+        <item>Mecánica</item>
+        <item>Mecánica Industrial</item>
+        <item>Mecatrónica</item>
+        <item>Química</item>
+        <item>Química Industrial</item>
+        <item>Tecnologías de Audio</item>
+        <item></item>
+
+    </string-array>
+
+
+
+</resources>

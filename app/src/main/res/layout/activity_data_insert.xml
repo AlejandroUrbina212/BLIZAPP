@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DataInsertActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="Product Sans"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <Button
+            android:id="@+id/logoutBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/logout" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/colorPrimary"
+            android:fontFamily="Product Sans"
+            android:gravity="center"
+            android:text="@string/insertStudentData"
+            android:textColor="#fff"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/studentNameTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="@string/firstName"
+            android:imeOptions="actionNext"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/StudentLastNameTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="@string/last_name"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/StudentDocumentNumberTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="@string/carne"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/StudentTotalHoursTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="@string/number_of_hours"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/facultySpinnerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="18sp"
+            android:text="Facultad de realización"/>
+
+        <Spinner
+            android:id="@+id/facultySpinner"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/spinner_background"/>
+        <TextView
+            android:id="@+id/departmentSpinnerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="18sp"
+            android:text="Departamento de realización"/>
+
+        <Spinner
+            android:id="@+id/departmentSpinner"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/spinner_background"/>
+        <EditText
+            android:id="@+id/dateOfServiceTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="@string/dateOfService"
+            android:inputType="date" />
+
+        <Button
+            android:id="@+id/saveDataBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_button_style"
+            android:gravity="center"
+            android:text="@string/save_student_data"
+            android:textColor="#fff" />
+    </LinearLayout>
+
+</ScrollView>
