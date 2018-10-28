@@ -24,15 +24,14 @@
     <string name="dateOfService">Click Para Ingresar la fecha de realización</string>
 
     <string-array name="facultyNames">
+        <item>Vida Estudiantil</item>
+        <item>Relaciones Públicas</item>
+        <item>SEEA</item>
         <item>Ingeniería</item>
         <item>Ciencias y Humanidades</item>
         <item>Educación</item>
         <item>Ciencias Sociales</item>
-        <item>Vida Estudiantil</item>
-        <item>Relaciones Públicas</item>
-        <item>SEEA</item>
         <item>Design Innovation And Arts</item>
-        <item>Ciencias Sociales</item>
         <item>Global Management And B.I.</item>
         <item>Colegio Universitario</item>
     </string-array>

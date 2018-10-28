@@ -24,10 +24,10 @@ class DataInsertActivity : AppCompatActivity() {
     private val db = FirebaseFirestore.getInstance()
     private var dateOfService: Date = Calendar.getInstance().time
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_data_insert)
-
 
         val saveDataButton = findViewById<View>(R.id.saveDataBtn) as Button
         saveDataButton.setOnClickListener {
@@ -38,7 +38,7 @@ class DataInsertActivity : AppCompatActivity() {
         logoutButton.setOnClickListener {
             logout()
         }
-        dateOfServiceTxt.setOnClickListener{
+        dateOfServiceTxt.setOnClickListener {
             prepareDatePickerDialog()
         }
         val spinner = findViewById<View>(R.id.facultySpinner) as Spinner
@@ -47,24 +47,27 @@ class DataInsertActivity : AppCompatActivity() {
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = myAdapter
 
+
+        val departmentSpinner = findViewById<View>(R.id.departmentSpinner) as Spinner
+        var list: ArrayList<String>
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, pos: Int, id: Long) {
-                departmentSpinner.isEnabled = pos == 0
+                list = generateArrayByDepartment(pos)
+                setDepartmentSpinner(list, departmentSpinner)
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
             }
         }
 
+    }
 
-        val departmentSpinner = findViewById<View>(R.id.departmentSpinner) as Spinner
+    fun setDepartmentSpinner(list: ArrayList<String>, departmentSpinner: Spinner) {
         val secondAdapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
-                resources.getStringArray(R.array.engineeringNames))
+                list)
+
         secondAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         departmentSpinner.adapter = secondAdapter
-    }
-    private fun showDepartmentDialog(){
-
     }
 
     private fun logout() {
@@ -86,38 +89,46 @@ class DataInsertActivity : AppCompatActivity() {
         val nameString = nameTxt.text.toString()
         val lastNameString = lastNameTxt.text.toString()
         val facultyString = spinner.selectedItem.toString()
-        var departmentString: String
+        val departmentString: String
         val carne = carneTxt.text.toString()
-        val carneInt = carne.toInt()
+
 
         val hoursOfService = hoursOfServiceTxt.text.toString()
-        val hoursOfServiceInt = hoursOfService.toInt()
 
-        if (facultyString != "Ingeniería"){
-            departmentString = spinner.selectedItem.toString()
+
+        departmentString = if (facultyString == "Vida Estudiantil" || facultyString == "Relaciones Públicas" ||
+                facultyString == "SEEA") {
+            spinner.selectedItem.toString()
         } else {
-            departmentString = departmentSpinner.selectedItem.toString()
+            departmentSpinner.selectedItem.toString()
         }
 
-        val newRecord = Record(nameString, lastNameString, carneInt, hoursOfServiceInt, facultyString, departmentString ,dateOfService, mAuth.currentUser!!.uid)
+        if (nameString != "" && lastNameString != "" && carne != "" && hoursOfService != ""){
+            val carneInt = carne.toInt()
+            val hoursOfServiceInt = hoursOfService.toInt()
+            val newRecord = Record(nameString, lastNameString, carneInt, hoursOfServiceInt, facultyString,
+                    departmentString, dateOfService, mAuth.currentUser!!.uid, Calendar.getInstance().time)
 
-        db.collection("records")
-                .add(newRecord)
-                .addOnSuccessListener {
-                    Toast.makeText(this, "Datos del Alumno guardados de forma exitosa", Toast.LENGTH_LONG).show()
-                    nameTxt.setText("")
-                    lastNameTxt.setText("")
-                    carneTxt.setText("")
-                    hoursOfServiceTxt.setText("")
-                    dateOfServiceTxt.setText("")
+            db.collection("records")
+                    .add(newRecord)
+                    .addOnSuccessListener {
+                        Toast.makeText(this, "Datos del Alumno guardados de forma exitosa", Toast.LENGTH_LONG).show()
+                        nameTxt.setText("")
+                        lastNameTxt.setText("")
+                        carneTxt.setText("")
+                        hoursOfServiceTxt.setText("")
+                        dateOfServiceTxt.setText("")
 
-                }.addOnFailureListener { exception: Exception ->
-                    Toast.makeText(this, exception.toString(), Toast.LENGTH_LONG).show()
-                }
+                    }.addOnFailureListener { exception: Exception ->
+                        Toast.makeText(this, exception.toString(), Toast.LENGTH_LONG).show()
+                    }
+        } else {
+            Toast.makeText(this, "Por favor llene todos los campos con datos válidos", Toast.LENGTH_SHORT).show()
+        }
     }
 
     @SuppressLint("SimpleDateFormat")
-    private fun prepareDatePickerDialog(){
+    private fun prepareDatePickerDialog() {
         val c = Calendar.getInstance()
         val year = c.get(Calendar.YEAR)
         val month = c.get(Calendar.MONTH)
@@ -127,14 +138,61 @@ class DataInsertActivity : AppCompatActivity() {
         val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
             c.set(year, monthOfYear, dayOfMonth)
             val sdf = SimpleDateFormat("MM-dd-yyyy")
-            var formattedDate = sdf.format(c.time)
+            val formattedDate = sdf.format(c.time)
             val date = sdf.parse(formattedDate)
-            val dateToShow = "$dayOfMonth / ${monthOfYear+1} / $year"
+            val dateToShow = "$dayOfMonth / ${monthOfYear + 1} / $year"
             dateOfServiceTxt.setText(dateToShow)
             this.dateOfService = date
 
         }, year, month, day)
         dpd.show()
+    }
+
+    private fun generateArrayByDepartment(indexOfFacultySpinner: Int): ArrayList<String> {
+        var arrayListByDepartment = ArrayList<String>()
+        when (indexOfFacultySpinner) {
+            0 -> {
+                arrayListByDepartment = arrayListOf("Vida Estudiantil")
+            }
+            1 -> {
+                arrayListByDepartment = arrayListOf("Relaciones Públicas")
+            }
+            2 -> {
+                arrayListByDepartment = arrayListOf("SEEA")
+            }
+            3 -> {
+                arrayListByDepartment = arrayListOf("Administración"
+                        , "Bioinformática", "Biomédica", "Biotec. Industrial", "Ciencias de Alimentos"
+                        , "Civil", "Civil Ambiental", "Civil Arquitectónica", "Civil Industrial"
+                        , "CCTI", "Electrónica", "Industrial", "Mecánica", "Mecánica Industrial", "Mecatrónica"
+                        , "Química", "Química Industrial", "Tecnologías de Audio")
+            }
+            4 -> {
+                arrayListByDepartment = arrayListOf("Biología", "Bioquímica y Microbiología"
+                        , "Biotecnología Molecular", "Comunicación y Letras", "Física"
+                        , "Matemática Aplicada", "Nutrición", "Química", "Química Farmacéutica")
+
+            }
+            5 -> {
+                arrayListByDepartment = arrayListOf( "Educación", "Física y la Matemática"
+                        ,"Música", "Psicopedagogía", "Química y la Biología")
+            }
+            6 -> {
+                arrayListByDepartment = arrayListOf("Antropología y Sociología", "Arqueología", "Psicología"
+                        , "Relaciones Internacionales & Master of Arts in Global Affairs")
+            }
+            7 -> {
+                arrayListByDepartment = arrayListOf("Composición y Producción Musical", "Diseño de Producto e Innovación")
+            }
+            8 -> {
+                arrayListByDepartment = arrayListOf("Food Business and Marketing", "international Marketing and Business Analytics")
+            }
+            9 -> {
+                arrayListByDepartment = arrayListOf("Baccalaureatus en Artibus", "Baccalaureatus en Scientiis")
+            }
+        }
+
+        return arrayListByDepartment
     }
 
 
