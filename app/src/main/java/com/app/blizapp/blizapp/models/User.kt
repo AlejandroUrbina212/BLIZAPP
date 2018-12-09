@@ -1,17 +1,12 @@
 package com.app.blizapp.blizapp.models
 
-import java.util.*
-
-data class User(private val userId: String, private var userName: String, private var password: String,
-                private var name: String, private var lastName: String,
-                private var phone: String, private var email: String, private val gender: Int){
+data class User(private val userId: String, private val password: String,
+                private val name: String, private val lastName: String,
+                private val email: String){
 
 
     fun getUserId(): String{
         return this.userId
-    }
-    fun getUserName(): String{
-        return this.userName
     }
     fun getPassword(): String{
         return this.password
@@ -22,17 +17,7 @@ data class User(private val userId: String, private var userName: String, privat
     fun getLastName(): String{
         return this.lastName
     }
-    fun getTelephone():String{
-        return this.phone
-    }
     fun getMail():String{
         return this.email
     }
-    fun getGender():Int{
-        return this.gender
-    }
-
-
-
-
 }

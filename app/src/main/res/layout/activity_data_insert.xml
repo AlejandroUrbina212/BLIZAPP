@@ -1,114 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DataInsertActivity">
+    tools:context=".activities.DataInsertActivity">
 
-    <LinearLayout
+    <include layout="@layout/toolbar" />
+
+    <RelativeLayout
+        android:id="@+id/dataRelLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="?android:attr/actionBarSize">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp">
+
+            <RelativeLayout
+                android:id="@+id/DatInsertRelLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@color/colorPrimary"
+                        android:gravity="center"
+                        android:text="@string/insertStudentData"
+                        android:textColor="#fff"
+                        android:textSize="17sp" />
+
+                    <EditText
+                        android:id="@+id/StudentDocumentNumberTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:hint="@string/carne"
+                        android:inputType="number" />
+
+                    <EditText
+                        android:id="@+id/studentNameTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:hint="@string/firstName"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPersonName" />
+
+                    <EditText
+                        android:id="@+id/StudentLastNameTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:hint="@string/last_name"
+                        android:inputType="textPersonName" />
+
+
+                    <EditText
+                        android:id="@+id/StudentTotalHoursTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:hint="@string/number_of_hours"
+                        android:inputType="number" />
+
+                    <TextView
+                        android:id="@+id/facultySpinnerTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Facultad de realización"
+                        android:textSize="18sp" />
+
+                    <Spinner
+                        android:id="@+id/facultySpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/spinner_background" />
+
+                    <TextView
+                        android:id="@+id/departmentSpinnerTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Departamento de realización"
+                        android:textSize="18sp" />
+
+                    <Spinner
+                        android:id="@+id/departmentSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/spinner_background" />
+
+                    <TextView
+                        android:id="@+id/dateOfServiceTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Fecha de Realización"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/dateOfServiceBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/secondary_button_style"
+                        android:text="@string/dateOfService" />
+
+                    <Button
+                        android:id="@+id/saveDataBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/rounded_button_style"
+                        android:gravity="center"
+                        android:text="@string/save_student_data"
+                        android:textColor="#fff" />
+                </LinearLayout>
+            </RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="Product Sans"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:layout_gravity="bottom">
 
-        <Button
-            android:id="@+id/logoutBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:text="@string/logout" />
+        <include layout="@layout/layout_bottom_navigation_view_user" />
+    </RelativeLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@color/colorPrimary"
-            android:fontFamily="Product Sans"
-            android:gravity="center"
-            android:text="@string/insertStudentData"
-            android:textColor="#fff"
-            android:textSize="17sp" />
 
-        <EditText
-            android:id="@+id/studentNameTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:hint="@string/firstName"
-            android:imeOptions="actionNext"
-            android:inputType="textPersonName" />
-
-        <EditText
-            android:id="@+id/StudentLastNameTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:hint="@string/last_name"
-            android:inputType="textPersonName" />
-
-        <EditText
-            android:id="@+id/StudentDocumentNumberTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:hint="@string/carne"
-            android:inputType="number" />
-
-        <EditText
-            android:id="@+id/StudentTotalHoursTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:hint="@string/number_of_hours"
-            android:inputType="number" />
-
-        <TextView
-            android:id="@+id/facultySpinnerTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textSize="18sp"
-            android:text="Facultad de realización"/>
-
-        <Spinner
-            android:id="@+id/facultySpinner"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/spinner_background"/>
-        <TextView
-            android:id="@+id/departmentSpinnerTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textSize="18sp"
-            android:text="Departamento de realización"/>
-
-        <Spinner
-            android:id="@+id/departmentSpinner"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/spinner_background"/>
-        <EditText
-            android:id="@+id/dateOfServiceTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:hint="@string/dateOfService"
-            android:inputType="date" />
-
-        <Button
-            android:id="@+id/saveDataBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/rounded_button_style"
-            android:gravity="center"
-            android:text="@string/save_student_data"
-            android:textColor="#fff" />
-    </LinearLayout>
-
-</ScrollView>
+</android.support.design.widget.CoordinatorLayout>

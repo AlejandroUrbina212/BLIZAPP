@@ -1,4 +1,4 @@
-package com.app.blizapp.blizapp
+package com.app.blizapp.blizapp.activities
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -6,8 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.auth.AuthResult
+import com.app.blizapp.blizapp.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 

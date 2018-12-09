@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/ic_my_events"
+        android:icon="@drawable/ic_my_events"
+        android:title="">
+    </item>
+
+
+    <item
+        android:id="@+id/ic_new_event"
+        android:icon="@drawable/ic_new_event"
+        android:title="">
+    </item>
+
+    <item
+        android:id="@+id/ic_data_insert_original"
+        android:icon="@drawable/ic_data_insert_original"
+        android:title="">
+    </item>
+</menu>

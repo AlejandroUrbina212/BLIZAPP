@@ -1,10 +1,10 @@
-package com.app.blizapp.blizapp
+package com.app.blizapp.blizapp.activities
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 import com.app.blizapp.blizapp.models.Record
@@ -15,30 +15,43 @@ import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
 import android.widget.AdapterView
+import com.app.blizapp.blizapp.R
+import com.app.blizapp.blizapp.utils.BottomNavigationViewHelperUser
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import kotlin.collections.ArrayList
 
 
 class DataInsertActivity : AppCompatActivity() {
+    //TODO: Hay que poner una forma de que se busque el carné y se llenen los demás campos.
 
     private val mAuth = FirebaseAuth.getInstance()
     private val db = FirebaseFirestore.getInstance()
     private var dateOfService: Date = Calendar.getInstance().time
+
+    companion object {
+        private const val ACTIVITY_NUM = 2
+        private const val TAG = "DataInsertActivity"
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_data_insert)
 
+        //Setting Up Toolbar
+        val toolbar = findViewById<android.support.v7.widget.Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar!!.title = "Ingreso de Datos Individual"
+
+        //setupBottonNavView
+        setupBottomNavigationView()
+
         val saveDataButton = findViewById<View>(R.id.saveDataBtn) as Button
         saveDataButton.setOnClickListener {
             saveData()
         }
 
-        val logoutButton = findViewById<View>(R.id.logoutBtn) as Button
-        logoutButton.setOnClickListener {
-            logout()
-        }
-        dateOfServiceTxt.setOnClickListener {
+        dateOfServiceBtn.setOnClickListener {
             prepareDatePickerDialog()
         }
         val spinner = findViewById<View>(R.id.facultySpinner) as Spinner
@@ -70,11 +83,6 @@ class DataInsertActivity : AppCompatActivity() {
         departmentSpinner.adapter = secondAdapter
     }
 
-    private fun logout() {
-        mAuth.signOut()
-        startActivity(Intent(this, MainActivity::class.java))
-        this.finish()
-    }
 
     private fun saveData() {
         val nameTxt = findViewById<View>(R.id.studentNameTxt) as EditText
@@ -83,7 +91,7 @@ class DataInsertActivity : AppCompatActivity() {
         val hoursOfServiceTxt = findViewById<View>(R.id.StudentTotalHoursTxt) as EditText
         val spinner = findViewById<View>(R.id.facultySpinner) as Spinner
         val departmentSpinner = findViewById<View>(R.id.departmentSpinner) as Spinner
-        val dateOfServiceTxt = findViewById<View>(R.id.dateOfServiceTxt) as EditText
+        val dateOfServiceBtn = findViewById<View>(R.id.dateOfServiceBtn) as Button
 
 
         val nameString = nameTxt.text.toString()
@@ -117,7 +125,7 @@ class DataInsertActivity : AppCompatActivity() {
                         lastNameTxt.setText("")
                         carneTxt.setText("")
                         hoursOfServiceTxt.setText("")
-                        dateOfServiceTxt.setText("")
+                        dateOfServiceBtn.text = "CLICK PARA INGRESAR LA FECHA DE REALIZACIÓN"
 
                     }.addOnFailureListener { exception: Exception ->
                         Toast.makeText(this, exception.toString(), Toast.LENGTH_LONG).show()
@@ -125,6 +133,7 @@ class DataInsertActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this, "Por favor llene todos los campos con datos válidos", Toast.LENGTH_SHORT).show()
         }
+
     }
 
     @SuppressLint("SimpleDateFormat")
@@ -141,7 +150,7 @@ class DataInsertActivity : AppCompatActivity() {
             val formattedDate = sdf.format(c.time)
             val date = sdf.parse(formattedDate)
             val dateToShow = "$dayOfMonth / ${monthOfYear + 1} / $year"
-            dateOfServiceTxt.setText(dateToShow)
+            dateOfServiceBtn.text = dateToShow
             this.dateOfService = date
 
         }, year, month, day)
@@ -193,6 +202,16 @@ class DataInsertActivity : AppCompatActivity() {
         }
 
         return arrayListByDepartment
+    }
+    private fun setupBottomNavigationView() {
+        Log.d(DataInsertActivity.TAG, "SetupBottomNavigationView: settinn BottomNavView")
+        val bottomNavigationViewEx = findViewById<BottomNavigationViewEx>(R.id.bottomNavViewBar)
+        val bottomNavigationViewHelper = BottomNavigationViewHelperUser()
+        bottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx)
+        bottomNavigationViewHelper.enableNavigation(this, bottomNavigationViewEx)
+        val menu = bottomNavigationViewEx.menu
+        val menuItem = menu.getItem(DataInsertActivity.ACTIVITY_NUM)
+        menuItem.isChecked = true
     }
 
 

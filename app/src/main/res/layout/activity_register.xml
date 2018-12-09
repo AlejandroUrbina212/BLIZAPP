@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".activities.RegisterActivity">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -51,12 +51,6 @@
                 android:hint="@string/Email"/>
 
             <EditText
-                android:id="@+id/userNameTxt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:hint="@string/user_Name"/>
-            <EditText
                 android:id="@+id/passwordTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -71,51 +65,6 @@
                 android:inputType="textPassword"
                 android:hint="@string/Confirm_password"/>
 
-            <EditText
-                android:id="@+id/telephoneTxt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:hint="@string/telephone"
-                android:inputType="phone" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="20dp"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:textSize="20sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/gender" />
-
-                <RadioGroup
-                    android:id="@+id/genderRadioGroup"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:id="@+id/female"
-                        android:layout_width="110dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginStart="30dp"
-                        android:text="@string/female"
-                        android:checked="true"/>
-                    <RadioButton
-                        android:id="@+id/male"
-                        android:layout_width="110dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginStart="30dp"
-                        android:text="@string/male" />
-
-
-                </RadioGroup>
-            </LinearLayout>
             <Button
                 android:id="@+id/registerBtn"
                 android:layout_width="match_parent"
