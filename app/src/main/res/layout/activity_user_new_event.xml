@@ -6,20 +6,158 @@
     android:layout_height="match_parent"
     tools:context=".activities.UserNewEventActivity">
 
+    <include layout="@layout/toolbar" />
+
     <RelativeLayout
-        android:id="@+id/userEventsRelLayout"
+        android:id="@+id/newEventRelLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
         android:layout_marginBottom="?android:attr/actionBarSize">
 
-
-        <android.support.v7.widget.RecyclerView
-            android:orientation="vertical"
-            android:layout_alignParentBottom="true"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="1dp"
-            android:id="@+id/recycler_view"/>
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/scrollableRelLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@color/colorPrimary"
+                        android:gravity="center"
+                        android:text="Ingresa los datos del Nuevo Evento"
+                        android:textColor="#fff"
+                        android:textSize="17sp" />
+
+                    <EditText
+                        android:id="@+id/newEventNameTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:hint="Nombre del Evento"
+                        android:inputType="textPersonName" />
+
+                    <EditText
+                        android:id="@+id/newEventDescriptionTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:hint="Descripción del evento"
+                        android:inputType="text" />
+
+                    <EditText
+                        android:id="@+id/newEventPlaceTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:hint="Lugar del Evento"
+                        android:inputType="textPersonName" />
+
+                    <TextView
+                        android:id="@+id/dateButtonTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Fecha del Evento"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/newEventDateBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/secondary_button_style"
+                        android:text="@string/dateOfService" />
+
+
+                    <EditText
+                        android:id="@+id/newEventInitialHourTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:hint="Hora de Inicio"
+                        android:inputType="date|time" />
+
+                    <EditText
+                        android:id="@+id/newEventEndHourTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:hint="Hora de Finalización"
+                        android:inputType="date|time" />
+
+
+                    <EditText
+                        android:id="@+id/newEventDurationTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:hint="Duración del Evento (Horas)"
+                        android:inputType="number"
+                        android:enabled="false"/>
+
+                    <TextView
+                        android:id="@+id/targetYearSpinnerTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Año mínimo de estudiantes requeridos"
+                        android:textSize="18sp" />
+
+                    <Spinner
+                        android:id="@+id/targetYearSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/spinner_background" />
+
+                    <TextView
+                        android:id="@+id/facultySpinnerTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Carrera de estudiantes requeridos"
+                        android:textSize="18sp" />
+
+                    <Spinner
+                        android:id="@+id/facultySpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/spinner_background" />
+
+                    <EditText
+                        android:id="@+id/newEventCapacityTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:hint="Capacidad de Admisión"
+                        android:inputType="phone" />
+
+                    <Button
+                        android:id="@+id/saveEventButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/rounded_button_style"
+                        android:gravity="center"
+                        android:text="guardar evento"
+                        android:textColor="#fff" />
+                </LinearLayout>
+            </RelativeLayout>
+        </ScrollView>
+
 
     </RelativeLayout>
 
@@ -27,7 +165,7 @@
         android:id="@+id/bottomNavBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below = "@+id/userEventsRelLayout">
+        android:layout_below="@+id/newEventRelLayout">
 
         <include layout="@layout/layout_bottom_navigation_view_user" />
     </RelativeLayout>

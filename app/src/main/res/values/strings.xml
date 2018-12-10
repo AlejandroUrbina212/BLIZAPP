@@ -34,6 +34,7 @@
         <item>Design Innovation And Arts</item>
         <item>Global Management And B.I.</item>
         <item>Colegio Universitario</item>
+        <item>Cualquiera puede Aplicar</item>
     </string-array>
 
     <string-array name="engineeringNames">
@@ -58,6 +59,18 @@
         <item></item>
 
     </string-array>
+
+    <string-array name="targetYear">
+        <item>1er. Año</item>
+        <item>2do. Año</item>
+        <item>3er. Año</item>
+        <item>4to. Año</item>
+        <item>5to. Año</item>
+    </string-array>
+
+
+
+
 
 
 </resources>

@@ -60,7 +60,7 @@ class LoginActivity : AppCompatActivity() {
                         val document = task.result
                         if (document.exists()) {
                             Log.d("USER TYPE", "DocumentSnapshot data: " + task.result.data)
-                            startActivity(Intent(this, DataInsertActivity::class.java))
+                            startActivity(Intent(this, UserEventsActivity::class.java))
                             Toast.makeText(this, "Login as user :)", Toast.LENGTH_LONG).show()
                             this.finish()
                         }
@@ -72,6 +72,9 @@ class LoginActivity : AppCompatActivity() {
 
     private fun goToRegister(){
         startActivity(Intent(this, RegisterActivity::class.java))
+    }
+    override fun onBackPressed() {
+        moveTaskToBack(true)
     }
 
 }

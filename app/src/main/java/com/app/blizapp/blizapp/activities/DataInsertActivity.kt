@@ -94,6 +94,7 @@ class DataInsertActivity : AppCompatActivity() {
         val dateOfServiceBtn = findViewById<View>(R.id.dateOfServiceBtn) as Button
 
 
+
         val nameString = nameTxt.text.toString()
         val lastNameString = lastNameTxt.text.toString()
         val facultyString = spinner.selectedItem.toString()

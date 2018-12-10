@@ -6,20 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".activities.UserEventsActivity">
 
+    <include layout="@layout/toolbar" />
+
     <RelativeLayout
         android:id="@+id/userEventsRelLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
         android:layout_marginBottom="?android:attr/actionBarSize">
 
 
         <android.support.v7.widget.RecyclerView
-            android:orientation="vertical"
-            android:layout_alignParentBottom="true"
+            android:id="@+id/events_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_marginTop="1dp"
-            android:id="@+id/recycler_view"/>
+            android:orientation="vertical" />
 
     </RelativeLayout>
 
@@ -27,7 +30,7 @@
         android:id="@+id/bottomNavBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below = "@+id/userEventsRelLayout">
+        android:layout_below="@+id/userEventsRelLayout">
 
         <include layout="@layout/layout_bottom_navigation_view_user" />
     </RelativeLayout>
