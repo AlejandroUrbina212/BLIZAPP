@@ -21,7 +21,11 @@
         <activity android:name=".activities.RegisterActivity" />
         <activity android:name=".activities.UserEventsActivity" />
         <activity android:name=".activities.UserNewEventActivity" />
-        <activity android:name=".activities.StudentFeedActivity"></activity>
+        <activity android:name=".activities.StudentFeedActivity" />
+        <activity android:name=".activities.EventDetailsUserActivity" />
+        <activity android:name=".activities.EventResumeActivity" />
+        <activity android:name=".activities.StudentEventsActivity" />
+        <activity android:name=".activities.StudentProfileActivity"></activity>
     </application>
 
 </manifest>

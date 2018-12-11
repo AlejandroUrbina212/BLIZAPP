@@ -1,5 +1,6 @@
 package com.app.blizapp.blizapp.adapters
 
+import android.support.constraint.R.id.parent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -13,27 +14,25 @@ import kotlinx.android.synthetic.main.item_event.view.*
 import java.text.SimpleDateFormat
 
 
-class EventAdapter (options: FirestoreRecyclerOptions<Event>,
-                    val listener: (Event) -> Unit
+class EventAdapterStudent(options: FirestoreRecyclerOptions<Event>,
+                          val listener: (Event) -> Unit
 
-) : FirestoreRecyclerAdapter<Event, EventAdapter.EventViewHolder>(options){
-
-    override fun onBindViewHolder(productViewHolder: EventViewHolder, position: Int, request: Event) {
-        productViewHolder.bindItems(request)
+) : FirestoreRecyclerAdapter<Event, EventAdapterStudent.EventViewHolderStudent>(options) {
+    override fun onBindViewHolder(holder: EventViewHolderStudent, position: Int, model: Event) {
+        holder.bindItems(model)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolderStudent{
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_event, parent, false)
-        return EventViewHolder(view)
+        return EventViewHolderStudent(view)
     }
 
-
-
-    inner class EventViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView){
-        fun bindItems(event: Event) = with(itemView){
-            val eventNameTextView =findViewById<TextView>(R.id.eventNameTxt)
-            val eventDateTextView  = findViewById<TextView>(R.id.eventDateTxt)
-            val eventTimeTextView  = findViewById<TextView>(R.id.eventTimeTxt)
+    inner class EventViewHolderStudent(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bindItems(event: Event) = with(itemView) {
+            val eventNameTextView = findViewById<TextView>(R.id.eventNameTxt)
+            val eventDateTextView = findViewById<TextView>(R.id.eventDateTxt)
+            val eventTimeTextView = findViewById<TextView>(R.id.eventTimeTxt)
             val eventPlaceTextView = findViewById<TextView>(R.id.eventPlaceTxt)
             val eventStateTxt = findViewById<TextView>(R.id.eventStateTxt)
 
@@ -47,13 +46,13 @@ class EventAdapter (options: FirestoreRecyclerOptions<Event>,
             eventPlaceTextView.text = event.getPlace()
 
             when {
-                event.getState() == 0 ->{
+                event.getState() == 0 -> {
                     //Evento Colgado
                     eventStateTxt.text = "Evento colgado"
                     currentStateImageView.setImageResource(R.drawable.ic_evento_colgado)
 
                 }
-                event.getState() == 1 ->{
+                event.getState() == 1 -> {
                     //Evento Lleno
                     eventStateTxt.text = "Cupo lleno"
                     currentStateImageView.setImageResource(R.drawable.ic_evento_lleno)
@@ -66,7 +65,6 @@ class EventAdapter (options: FirestoreRecyclerOptions<Event>,
             }
             setOnClickListener { listener(event) }
         }
-
     }
 
 

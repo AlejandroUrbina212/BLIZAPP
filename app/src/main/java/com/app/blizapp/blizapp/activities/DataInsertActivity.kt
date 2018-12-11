@@ -2,6 +2,7 @@ package com.app.blizapp.blizapp.activities
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -213,6 +214,9 @@ class DataInsertActivity : AppCompatActivity() {
         val menu = bottomNavigationViewEx.menu
         val menuItem = menu.getItem(DataInsertActivity.ACTIVITY_NUM)
         menuItem.isChecked = true
+    }
+    override fun onBackPressed() {
+        startActivity(Intent(this, UserNewEventActivity::class.java))
     }
 
 

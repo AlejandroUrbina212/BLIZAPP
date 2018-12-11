@@ -8,6 +8,7 @@ import com.app.blizapp.blizapp.R
 import com.app.blizapp.blizapp.utils.BottomNavigationViewHelperUser
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.view.View
 import android.widget.*
 import com.app.blizapp.blizapp.models.Event
@@ -211,5 +212,9 @@ class UserNewEventActivity : AppCompatActivity() {
             newEventDate = date
         }, year, month, day)
         dpd.show()
+    }
+
+    override fun onBackPressed() {
+        startActivity(Intent(this, UserEventsActivity::class.java))
     }
 }

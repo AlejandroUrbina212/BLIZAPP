@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.EventResumeActivity">
+
+    <include layout="@layout/toolbar" />
+
+    <RelativeLayout
+        android:id="@+id/eventResumeRelLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="?android:attr/actionBarSize">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/scrollableRelLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:id="@+id/eventNameText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Nombre del Evento"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/eventNameTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:hint="Nombre del Evento"
+                        android:enabled="false"
+                        android:textColor="@color/colorAccent"/>
+
+                    <TextView
+                        android:id="@+id/eventDescriptionText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Descripción del Evento"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/eventDescriptionTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:hint="Descripción del Evento"
+                        android:inputType="text"
+                        android:textColor="@color/colorAccent"/>
+
+                    <TextView
+                        android:id="@+id/eventPlaceText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Lugar del Evento"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/eventPlaceTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:hint="Lugar del Evento"
+                        android:inputType="textPersonName"
+                        android:enabled="false"
+                        android:textColor="@color/colorAccent"/>
+
+                    <TextView
+                        android:id="@+id/eventDateText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Fecha del Evento"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/eventDateTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:hint="Fecha del Evento"
+                        android:inputType="textPersonName"
+                        android:enabled="false"
+                        android:textColor="@color/colorAccent"/>
+
+                    <TextView
+                        android:id="@+id/eventTimeText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Hora del Evento"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/eventTimeTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:hint="Hora del Evento"
+                        android:inputType="textPersonName"
+                        android:enabled="false"
+                        android:textColor="@color/colorAccent"/>
+
+                    <TextView
+                        android:id="@+id/eventAssistantStudentsText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Cantidad de Alumnos que asistirán"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/eventAssistantStudentsTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:hint="cantidad de Alumnos"
+                        android:inputType="textPersonName"
+                        android:enabled="false"
+                        android:textColor="@color/colorAccent"/>
+
+                </LinearLayout>
+            </RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/redirectToListRelLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/eventResumeRelLayout"
+        android:layout_gravity="bottom">
+
+        <Button
+            android:id="@+id/redirectToListBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/secondary_button_style"
+            android:text="Ver Lista de Asistentes" />
+
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

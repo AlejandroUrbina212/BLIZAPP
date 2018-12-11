@@ -63,12 +63,11 @@ class UserEventsActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Log.d("TAG", "Inside onComplete function!")
                     for (document in task.result) {
-                        val idRequestService = document.id
-                        //val intent = Intent(this, ServiceDetailsActivity::class.java)
-                        //intent.putExtra("serviceId", idRequestService)
-                        //startActivity(intent)
-                        Toast.makeText(this, "${document.id}", Toast.LENGTH_LONG).show()
-                        //finish()
+                        val idCurrentEvent = document.id
+                        val intent = Intent(this, EventResumeActivity::class.java)
+                        intent.putExtra("eventId", idCurrentEvent)
+                        startActivity(intent)
+                        finish()
                     }
                 }
             }
